@@ -5,15 +5,16 @@
   "main": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node-dev -r dotenv/config src/stream/stream.ts",
-    "dev": "ts-node-dev -r dotenv/config src/index.ts"
+    "start": "ts-node-dev -r dotenv/config src/stream/price.ts",
+    "dev": "ts-node-dev -r dotenv/config src/index.ts",
+    "ma": "ts-node-dev -r dotenv/config src/test/moving-average.ts"
   },
   "keywords": [
     "cex",
     "binance",
     "market-price"
   ],
-  "author": "lelerukjaymoh@gmail.com",
+  "author": "twitter.com/lelerukjaymoh",
   "license": "MIT",
   "dependencies": {
     "binance": "^2.0.37",

@@ -1,8 +1,8 @@
-import { streamPrice } from "./stream/price"
+import { streamer } from "./stream/stream"
 
 const main = async () => {
     console.log("Start app")
-    await streamPrice()
+    streamer.stream()
 }
 
 main()

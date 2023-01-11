@@ -1,16 +1,31 @@
 import { WebSocket } from 'ws';
 
-const stream = () => {
-    try {
-        const ws = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@trade');
+class Streamer {
+    streamURL = "wss://fstream.binance.com/ws/btcusdt@aggTrade"
 
-        ws.on('message', function incoming(data: any) {
-            console.log(JSON.parse(data));
-        });
+    constructor() { }
 
-    } catch (error) {
-        console.log("Streaming data error ", error)
+    stream() {
+        try {
+            const ws = new WebSocket(this.streamURL);
+
+            ws.on('message', (data: any) => {
+                data = JSON.parse(data)
+
+                const price = data.p
+                console.log(price);
+
+            });
+
+            ws.on("error", (error) => {
+                console.log("Error ", error)
+            })
+
+
+        } catch (error) {
+            console.log("Error streaming price ", error)
+        }
     }
 }
 
-stream()
+export const streamer = new Streamer()
